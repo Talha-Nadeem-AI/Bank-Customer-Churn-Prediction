@@ -1,0 +1,9 @@
+{
+  "rows_in": 10000,
+  "id_columns_dropped": 3,
+  "rows_missing_target": 0,
+  "duplicate_rows": 0,
+  "invalid_rows": 0,
+  "missing_feature_values": 0,
+  "rows_out": 10000
+}
