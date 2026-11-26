@@ -18,12 +18,13 @@ def setup_screen(problem: str) -> None:
         f'<p style="font-size:14px;line-height:1.6;color:{t.SUBTLE};margin:12px 0 0">Training reads '
         f'<code>{esc(config.default_data_path().relative_to(config.PROJECT_ROOT))}</code>, runs the experiments, saves the '
         f'best model and writes every chart and table the app shows. The quick option below uses a smaller tuning grid '
-        f'and takes about a minute. For the full run (about 4–5 minutes) use <code>python main.py</code> in a terminal.</p>',
+        f'and takes about 2–3 minutes. For the full run (about 4–5 minutes) use <code>python main.py</code> in a terminal.</p>',
         "margin:18px 0"))
-    if st.button("Train the model now (quick, about 1 minute)", type="primary"):
+    if st.button("Train the model now (quick, about 2–3 minutes)", type="primary"):
         from main import run_pipeline, setup_logging  # project-root script; imported only when needed
 
         setup_logging()
+        config.N_JOBS = 1  # one core: stays inside the ~1 GB memory limit of free cloud hosting
         with st.spinner("Training: cleaning data, running 5 experiments, tuning the final model…"):
             run_pipeline(quick=True)
         st.cache_data.clear()

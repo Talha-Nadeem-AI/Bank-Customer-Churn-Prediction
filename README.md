@@ -99,7 +99,7 @@ Fonts load from Google Fonts; offline, the app falls back to the system font.
 ## Deploying online (Streamlit Community Cloud)
 1. Push the project to a GitHub repository (the `.gitignore` keeps out the raw CSV, because it contains surnames, and the trained model).
 2. Run the app locally and click **Deploy** (top right) → Streamlit Community Cloud, or go to share.streamlit.io. Pick the repo, branch `main` and file `app.py`.
-3. On first launch the app shows **Set up ChurnGuard**. Click **Train the model now**: it trains on the anonymised `data/processed/churn_cleaned.csv` (same 10,000 rows, no identifiers) in about a minute.
+3. The trained model (`models/final_model.joblib`) is committed, so the app opens straight on the dashboard with the same results as the report. Only if the host installs a different scikit-learn version does the app show **Set up ChurnGuard**; then click **Train the model now** and it retrains on the anonymised `data/processed/churn_cleaned.csv` in about 2–3 minutes, using one CPU core so it stays within the free tier's memory limit.
 
 ## Dataset
 - **Name:** Churn Modelling (bank customer churn), 10,000 customers × 14 columns. Target `Exited` (20.4% churn).

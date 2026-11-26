@@ -79,7 +79,7 @@ def run_single(spec: RunSpec, X_train, y_train, X_test, y_test,
     """Cross-validate a run on the training set, then fit and score it on the test set."""
     start = time.time()
     pipe = build_pipeline(spec.model_name, spec.add_features, spec.drop_features, **spec.model_params)
-    cv = cross_validate(pipe, X_train, y_train, cv=make_cv(), scoring=CV_SCORING, n_jobs=-1)
+    cv = cross_validate(pipe, X_train, y_train, cv=make_cv(), scoring=CV_SCORING, n_jobs=config.N_JOBS)
     cv_scores = {m: float(np.mean(cv[f"test_{m}"])) for m in CV_SCORING}
     cv_scores["f1_std"] = float(np.std(cv["test_f1"]))
     pipe.fit(X_train, y_train)
@@ -171,7 +171,7 @@ def run_all_experiments(X_train, y_train, X_test, y_test, quick: bool = False) -
     spec = best_features.spec
     grid = (QUICK_PARAM_GRIDS if quick else PARAM_GRIDS)[spec.model_name]
     base_pipe = build_pipeline(spec.model_name, spec.add_features, spec.drop_features)
-    search = GridSearchCV(base_pipe, grid, scoring="f1", cv=make_cv(), n_jobs=-1, refit=True)
+    search = GridSearchCV(base_pipe, grid, scoring="f1", cv=make_cv(), n_jobs=config.N_JOBS, refit=True)
     start = time.time()
     search.fit(X_train, y_train)
     tuned_params = {k.replace("model__", ""): v for k, v in search.best_params_.items()}
@@ -184,7 +184,7 @@ def run_all_experiments(X_train, y_train, X_test, y_test, quick: bool = False) -
     tuned_spec = RunSpec("E5", "5. Tuning", "Grid-searched hyper-parameters + tuned decision threshold",
                          spec.model_name, spec.add_features, spec.drop_features, tuned_params)
     tuned_pipe = build_pipeline(spec.model_name, spec.add_features, spec.drop_features, **tuned_params)
-    oof = cross_val_predict(tuned_pipe, X_train, y_train, cv=make_cv(), method="predict_proba", n_jobs=-1)[:, 1]
+    oof = cross_val_predict(tuned_pipe, X_train, y_train, cv=make_cv(), method="predict_proba", n_jobs=config.N_JOBS)[:, 1]
     threshold = find_best_threshold(y_train, oof, metric="recall",
                                     min_precision=config.THRESHOLD_MIN_PRECISION)
     oof_metrics = compute_metrics(y_train, oof, threshold)

@@ -80,7 +80,7 @@ def make_estimator(name: str, **params: Any) -> ClassifierMixin:
         base = dict(max_iter=2000, random_state=rs)
         return LogisticRegression(**{**base, **params})
     if name == "random_forest":
-        base = dict(n_estimators=300, random_state=rs, n_jobs=-1)
+        base = dict(n_estimators=300, random_state=rs, n_jobs=config.N_JOBS)
         return RandomForestClassifier(**{**base, **params})
     if name == "gradient_boosting":
         base = dict(max_iter=300, random_state=rs)

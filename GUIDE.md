@@ -140,7 +140,7 @@ Your browser opens at **http://localhost:8501**. If it does not, copy that addre
 
 The dark **sidebar** on the left is the menu. Its top card shows the model status ("Model ready", recall ring), then six pages in three groups (Analyse, Predict, Govern), the overall churn rate, the risk-level colours and the dataset name. Open each page in order and tick each check as you go.
 
-If you see **"Set up ChurnGuard"** instead of the dashboard, the model has not been trained on this computer yet: click **Train the model now** (about 1 minute) or go back to Step 3.
+If you see **"Set up ChurnGuard"** instead of the dashboard, the model has not been trained on this computer yet: click **Train the model now** (about 2–3 minutes) or go back to Step 3.
 
 ### Page 1 — Overview (Analyse)
 
@@ -227,7 +227,7 @@ The **Deploy** button at the top right of the app publishes it free on Streamlit
 1. Upload the project folder to a GitHub repository. The raw dataset and the trained model are deliberately left out by the `.gitignore` file (the raw file contains customer surnames).
 2. In the running app, click **Deploy** → **Deploy now** under Streamlit Community Cloud, and sign in with GitHub.
 3. Choose the repository, branch `main` and main file `app.py`, then click **Deploy**. The first build takes a few minutes.
-4. On first launch the online app shows **"Set up ChurnGuard"**: click **Train the model now**. It trains on the anonymised file `data/processed/churn_cleaned.csv` in about a minute, then the dashboard appears.
+4. The online app opens straight on the dashboard, because the trained model is included in the repository. If it ever shows **"Set up ChurnGuard"** instead, click **Train the model now**: it retrains on the anonymised file `data/processed/churn_cleaned.csv` in about 2–3 minutes, then the dashboard appears.
 
 - [ ] (If tested) The deployed app opens from its link and the Predict page works.
 

@@ -189,7 +189,7 @@ def plot_feature_importance(pipeline, X_test: pd.DataFrame, y_test, path: Path,
     original (human-readable) features.
     """
     result = permutation_importance(pipeline, X_test, y_test, scoring="roc_auc",
-                                    n_repeats=n_repeats, random_state=config.RANDOM_STATE, n_jobs=-1)
+                                    n_repeats=n_repeats, random_state=config.RANDOM_STATE, n_jobs=config.N_JOBS)
     imp = pd.DataFrame({"feature": X_test.columns, "importance": result.importances_mean,
                         "std": result.importances_std}).sort_values("importance")
     fig, ax = plt.subplots(figsize=(7, 4.5))
