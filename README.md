@@ -4,6 +4,8 @@
 
 This project predicts which bank customers are likely to leave (churn), so that a retention team can contact them first. The pipeline is Python and scikit-learn: data audit, cleaning, EDA, 5 documented experiments (baseline → improved model), fairness and error analysis, and a working prediction demo.
 
+> **Live demo:** [bank-customer-churn-prediction-vycaupp7x4mh5jfxozrhmt.streamlit.app](https://bank-customer-churn-prediction-vycaupp7x4mh5jfxozrhmt.streamlit.app): the trained model is included, so it opens straight on the dashboard.
+
 > **New to the project?** Read **[GUIDE.md](GUIDE.md)**. It explains what churn is, how to install and run everything, and how to test each feature, with expected results and a review form.
 
 > ⚠️ This is a classroom model. It is **not** ready for deployment and must not be used for high-stakes decisions about real customers.
