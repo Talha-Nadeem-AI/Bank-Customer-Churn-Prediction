@@ -6,6 +6,7 @@ pipeline picks it up.
 """
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 # --------------------------------------------------------------------------
@@ -25,6 +26,9 @@ FINAL_MODEL_META_PATH = MODELS_DIR / "final_model_metadata.json"
 # Reproducibility and evaluation settings
 # --------------------------------------------------------------------------
 RANDOM_STATE = 42          # one seed used everywhere
+# CPU cores for training. -1 = all cores (fast on a laptop). The Streamlit app sets this to 1,
+# because free cloud hosts report many cores but allow only ~1 GB of memory.
+N_JOBS = int(os.environ.get("CHURN_N_JOBS", "-1"))
 TEST_SIZE = 0.20           # 80% train / 20% held-out test
 CV_FOLDS = 5               # stratified k-fold cross-validation on training data
 DEFAULT_THRESHOLD = 0.50   # probability cut-off before threshold tuning
