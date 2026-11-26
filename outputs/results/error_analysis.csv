@@ -1,0 +1,5 @@
+outcome,count,CreditScore,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,is_germany,is_female
+FN (missed churner),130,652.29,39.18,4.98,87449.2,1.41,0.68,0.42,94360.54,0.22,0.53
+FP (false alarm),207,643.98,44.72,5.14,91207.94,1.26,0.71,0.46,105945.3,0.43,0.56
+TN (correct stay),1386,650.45,36.11,5.08,70866.42,1.58,0.68,0.57,101546.62,0.19,0.42
+TP (caught churner),277,648.51,47.83,4.5,91479.91,1.56,0.73,0.31,101497.27,0.44,0.59

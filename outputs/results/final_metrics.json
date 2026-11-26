@@ -1,0 +1,38 @@
+{
+  "model": "Random Forest",
+  "params": {
+    "class_weight": "balanced_subsample",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "min_samples_leaf": 5
+  },
+  "engineered_features": true,
+  "dropped_features": null,
+  "test_metrics": {
+    "threshold": 0.45,
+    "accuracy": 0.8315,
+    "precision": 0.5723140495867769,
+    "recall": 0.6805896805896806,
+    "f1": 0.621773288439955,
+    "roc_auc": 0.8588727402286724,
+    "pr_auc": 0.7000726487282587,
+    "tn": 1386,
+    "fp": 207,
+    "fn": 130,
+    "tp": 277
+  },
+  "test_metrics_at_0.5": {
+    "threshold": 0.5,
+    "accuracy": 0.848,
+    "precision": 0.6246973365617433,
+    "recall": 0.6339066339066339,
+    "f1": 0.6292682926829268,
+    "roc_auc": 0.8588727402286724,
+    "pr_auc": 0.7000726487282587,
+    "tn": 1438,
+    "fp": 155,
+    "fn": 149,
+    "tp": 258
+  },
+  "random_state": 42
+}

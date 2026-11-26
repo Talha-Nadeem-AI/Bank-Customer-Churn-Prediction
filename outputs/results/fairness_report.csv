@@ -1,0 +1,6 @@
+attribute,group,n,actual_churn_rate,predicted_churn_rate,recall,precision,false_positive_rate,f1
+Gender,Female,930,0.251,0.301,0.704,0.586,0.166,0.639
+Gender,Male,1070,0.163,0.191,0.649,0.554,0.102,0.598
+Geography,France,1021,0.171,0.181,0.583,0.551,0.098,0.567
+Geography,Germany,504,0.3,0.423,0.815,0.577,0.255,0.676
+Geography,Spain,475,0.171,0.181,0.642,0.605,0.086,0.623

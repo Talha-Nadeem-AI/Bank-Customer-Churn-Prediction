@@ -1,0 +1,4 @@
+criterion,metric,target,achieved,met
+Catch at least 65% of customers who actually churn (recall),recall,0.65,0.681,True
+At least half of the customers flagged really churn (precision),precision,0.5,0.572,True
+Rank churners above non-churners well (ROC-AUC),roc_auc,0.85,0.859,True
