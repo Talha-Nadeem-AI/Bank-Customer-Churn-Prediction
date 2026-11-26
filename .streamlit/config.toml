@@ -1,0 +1,14 @@
+# ChurnGuard theme: widget colours match the app's evergreen/teal palette.
+[theme]
+base = "light"
+primaryColor = "#2F6B62"
+backgroundColor = "#F1F2EF"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#1D2522"
+
+[browser]
+gatherUsageStats = false
+
+[client]
+# "auto" shows the Deploy button and developer menu when you run the app on your own computer.
+toolbarMode = "auto"
